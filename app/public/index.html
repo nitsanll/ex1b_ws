@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="students">
+ <head>
+    <meta charset="utf-8">
+    <title> students </title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+ </head>
+ <body>
+    <h1> Students Grades App </h1>
+    <main ng-controller="studentsCtrl">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search student by id" ng-model="id">
+                </div><!-- /input-group -->
+            </div><!-- /.col-lg-6 -->
+            <div class="col-lg-6">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search students by year" ng-model="year">
+                </div><!-- /input-group -->
+            </div><!-- /.col-lg-6 -->
+        </div><!-- /.row -->
+            <div id="studentInfo" ng-repeat="student in allstud.studlist | filter: id | filter: year">
+            <p><b>id:</b> {{student.id}} </p>
+            <p><b>name:</b> {{student.name}}</p>
+            <p><b>grade:</b> {{student.grade}}</p>
+            <p><b>year:</b> {{student.year}} </p>
+            <br>
+        </div>
+        <div class = "clear"> </div>
+    </main>
+    <script src="js/lib/angular/angular.min.js"></script>
+    <script src="js/students.js"></script>
+ </body>
+ </html>
